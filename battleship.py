@@ -10,7 +10,7 @@ class Game:
 			self.board.append(["~"]*10)
 		print(self.columns)
 		row = 0
-		while row < 11:
+		while row <= 8:
 			print(self.rows[row], self.board[row])
 			row += 1
 

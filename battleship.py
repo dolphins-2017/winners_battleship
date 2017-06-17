@@ -50,8 +50,40 @@ class Game:
 			x += 4
 			self.printBoard()
 
+	def hitOrMiss(self, coords):
+		both = list(coords)
+		x = both[0].lower()
+		y = int(both[1])
+		if x == "a":
+			x = self.board[1]
+		if x == "b":
+			x = self.board[2]
+		if x == "c":
+			x = self.board[3]
+		if x == "d":
+			x = self.board[4]
+		if x == "e":
+			x = self.board[5]
+		if x == "f":
+			x = self.board[6]
+		if x == "g":
+			x = self.board[7]
+		if x == "h":
+			x = self.board[8]
+		if x == "i":
+			x = self.board[9]
+		if x == "j":
+			x = self.board[10]
+		if y > 1:
+			pos = 3 + (4*y)
+		if y == 1:
+			pos = 3
 
-
+		if x[pos] == "~":
+			return "Miss!"
+		else:
+			x[pos] = "X"
+			return "Hit!"
 
 
 def main():

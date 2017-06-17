@@ -40,7 +40,7 @@ class Game:
 		#y = 1
 		
 		for ship in ships:
-			desiredrow = (input("What row do you want to place your shipin?\n")).lower()
+			desiredrow = (input("What row do you want to place your ship in?\n")).lower()
 			if desiredrow == "a":
 				y = 1
 			z = int(input("What column you want to place your ship in?\n"))
@@ -55,10 +55,12 @@ class Game:
 			self.printBoard()
 
 	def hitOrMiss(self):
+		
 		target = input("What are the coordinates, captain?")
 		both = list(target)
 		x = both[0].lower()
 		y = int(both[1])
+		
 		if x == "a":
 			x = list(self.board[1])
 		if x == "b":
@@ -93,14 +95,28 @@ class Game:
 		else:
 			x[pos] = "R"
 			newlist = "".join(x)
-			self.board = newlist
+			self.board[y] = newlist
+			print("Hit!")
 			return "Hit!"
 
 
+	def turn(self):
+		turn_on = True
+		while turn_on == True:
+			isOver = self.hitOrMiss()
+			if isOver == "Miss!":
+				self.printBoard()
+				turn_on = False
+			else:
+				self.printBoard()
+
+
 def main():
-	# gameBoard = Game()
-	# gameBoard.genBoard()
-	# gameBoard.printBoard()
-	pass
-	
+	gameBoard = Game()
+	gameBoard.genBoard()
+	gameBoard.printBoard()
+	gameBoard.insertShips()
+	gameBoard.turn()
+	gameBoard.printBoard()
+
 main()

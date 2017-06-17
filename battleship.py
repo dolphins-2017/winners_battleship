@@ -1,3 +1,5 @@
+from random import randint
+
 class Game:
 
 	def __init__(self):
@@ -29,16 +31,25 @@ class Game:
 			print(i)
 
 	def insertShips(self):
-		x = 1
-		y = 3
 		submarine = ["S", "S", "S"]
-		splitlist = list(self.board[x])
-		for i in submarine:
-			splitlist[y] = i
-			newlist = "".join(splitlist)
-			self.board[x] = newlist
-			x += 1
-		self.printBoard()
+		destroyer = ["D", "D", "D", "D"]
+		small_ship = ["T", "T"]
+		aircraft_carrier = ['A', 'A', 'A', 'A', 'A']
+
+		ships = [submarine, destroyer, small_ship, aircraft_carrier]
+
+		for ship in ships:
+			y = 1
+			x = 3
+			splitlist = list(self.board[y])
+			for i in ship:
+				splitlist[x] = i
+				newlist = "".join(splitlist)
+				self.board[y] = newlist
+				y += 1
+			x += 4
+			self.printBoard()
+
 
 
 

@@ -37,21 +37,57 @@ class Game:
 		aircraft_carrier = ['A', 'A', 'A', 'A', 'A']
 
 		ships = [submarine, destroyer, small_ship, aircraft_carrier]
-
+		#y = 1
+		
 		for ship in ships:
-			y = 1
-			x = 3
-			splitlist = list(self.board[y])
+			desiredrow = (input("What row do you want to place your shipin?\n")).lower()
+			if desiredrow == "a":
+				y = 1
+			z = int(input("What column you want to place your ship in?\n"))
+			x = (3*z) +(z-1)
 			for i in ship:
+				splitlist = list(self.board[y])
 				splitlist[x] = i
 				newlist = "".join(splitlist)
 				self.board[y] = newlist
 				y += 1
-			x += 4
+			x += 3
 			self.printBoard()
 
+	def hitOrMiss(self, coords):
+		both = list(coords)
+		x = both[0].lower()
+		y = int(both[1])
+		if x == "a":
+			x = self.board[1]
+		if x == "b":
+			x = self.board[2]
+		if x == "c":
+			x = self.board[3]
+		if x == "d":
+			x = self.board[4]
+		if x == "e":
+			x = self.board[5]
+		if x == "f":
+			x = self.board[6]
+		if x == "g":
+			x = self.board[7]
+		if x == "h":
+			x = self.board[8]
+		if x == "i":
+			x = self.board[9]
+		if x == "j":
+			x = self.board[10]
+		if y > 1:
+			pos = 3 + (4*y)
+		if y == 1:
+			pos = 3
 
-
+		if x[pos] == "~":
+			return "Miss!"
+		else:
+			x[pos] = "X"
+			return "Hit!"
 
 
 def main():

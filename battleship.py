@@ -59,34 +59,40 @@ class Game:
 		x = both[0].lower()
 		y = int(both[1])
 		if x == "a":
-			x = self.board[1]
+			x = list(self.board[1])
 		if x == "b":
-			x = self.board[2]
+			x = list(self.board[2])
 		if x == "c":
-			x = self.board[3]
+			x = list(self.board[3])
 		if x == "d":
-			x = self.board[4]
+			x = list(self.board[4])
 		if x == "e":
-			x = self.board[5]
+			x = list(self.board[5])
 		if x == "f":
-			x = self.board[6]
+			x = list(self.board[6])
 		if x == "g":
-			x = self.board[7]
+			x = list(self.board[7])
 		if x == "h":
-			x = self.board[8]
+			x = list(self.board[8])
 		if x == "i":
-			x = self.board[9]
+			x = list(self.board[9])
 		if x == "j":
-			x = self.board[10]
+			x = list(self.board[10])
 		if y > 1:
-			pos = 3 + (4*y)
+			pos = 4 + 3*(y-1)
 		if y == 1:
 			pos = 3
 
+
 		if x[pos] == "~":
+			x[pos] = "W"
+			newlist = "".join(x)
+			self.board[y] = newlist
 			return "Miss!"
 		else:
-			x[pos] = "X"
+			x[pos] = "R"
+			newlist = "".join(x)
+			self.board[y] = newlist
 			return "Hit!"
 
 

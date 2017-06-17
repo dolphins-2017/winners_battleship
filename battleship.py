@@ -54,8 +54,9 @@ class Game:
 			x += 3
 			self.printBoard()
 
-	def hitOrMiss(self, coords):
-		both = list(coords)
+	def hitOrMiss(self):
+		target = input("What are the coordinates, captain?")
+		both = list(target)
 		x = both[0].lower()
 		y = int(both[1])
 		if x == "a":
@@ -92,7 +93,7 @@ class Game:
 		else:
 			x[pos] = "R"
 			newlist = "".join(x)
-			self.board[y] = newlist
+			self.board = newlist
 			return "Hit!"
 
 
